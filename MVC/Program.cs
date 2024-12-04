@@ -1,4 +1,5 @@
 using BLL.DAL;
+using BLL.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,8 @@ builder.Services.AddControllersWithViews();
 //IoC Container:
 var connectionString = "server=(localdb)\\mssqllocaldb;database=HaldorGamesDB;trusted_connection=true";
 builder.Services.AddDbContext<Db>(options => options.UseSqlServer(connectionString));
+builder.Services.AddScoped<IPublisherService, PublisherService>();
+builder.Services.AddScoped<IDeveloperService, DeveloperService>();
 
 var app = builder.Build();
 

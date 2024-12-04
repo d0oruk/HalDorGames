@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Services
 {
-    interface IPublisherService
+    public interface IPublisherService
     {
         public IQueryable<PublisherModel> Query(); //READ
         public ServiceBase Create(Publisher record); //CREATE
