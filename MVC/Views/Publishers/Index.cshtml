@@ -4,6 +4,8 @@
 @* Generated from Custom Template. *@
 @* Model namespace using directive should be added to _ViewImports.cshtml. *@
 
+@* Hoca eklediğimiz her şeyi sonra yoruma dönüştürdü, bootcamp 1 02:38:09*@
+
 @{
     var containerDivClass = "container";
 }
@@ -30,6 +32,9 @@
                     @Model.Count() record(s) found.
                 </div>
                 <div class="col-2 text-end">
+                    @* HTML: *@
+                    <a href="/Publisher/Create/1">Create</a> @*1 root value imiş*@
+                    @* Tag Helper: *@
                     <a asp-action="Create">Create</a>
                 </div>
             </div>
@@ -37,7 +42,10 @@
                 <thead class="table-secondary">
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.Name)
+                            @* HTML: *@
+                            @* Name *@
+                            @* HTML Helper: *@
+                            @Html.DisplayNameFor(model => model.Name) @*halil: display name*@
                         </th>
                         <th></th>
                     </tr>
@@ -46,11 +54,27 @@
 		            @foreach (var item in Model) {
 				        <tr>
 					        <td>
-						        @Html.DisplayFor(modelItem => item.Name)
+                                @Html.DisplayFor(modelItem => item.Name) @*halil: display value*@
 					        </td>
 					        <td class="text-end w-25">
-						        <a asp-action="Details" asp-route-id="@item.Record.Id">Details</a>&nbsp;|&nbsp;
-						        <a asp-action="Edit" asp-route-id="@item.Record.Id">Edit</a>&nbsp;|&nbsp;
+                                @* HTML: *@
+                                <a href="/Publisher/Details/1">Details</a> @*1 root value imiş*@
+                                @*asp-controller kullanmana gerek yok, sadece actionlar da yetermiş*@
+                                @* Tag Helper: *@
+						        <a asp-action="Details" asp-controller="Publisher" asp-route-id="@item.Record.Id">Details</a>
+                               
+                                &nbsp;|&nbsp;
+
+                                @* HTML: *@
+                                <a href="/Publisher/Edit/1">Edit</a>
+                                @* Tag Helper: *@
+                                <a asp-action="Edit" asp-route-id="@item.Record.Id">Edit</a>
+                                
+                                &nbsp;|&nbsp;
+
+                                @* HTML: *@
+                                <a href="/Publisher/Delete/1">Delete</a>
+                                @* Tag Helper: *@
 						        <a asp-action="Delete" asp-route-id="@item.Record.Id">Delete</a>
 					        </td>
 				        </tr>
