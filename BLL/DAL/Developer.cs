@@ -12,6 +12,6 @@ namespace BLL.DAL
         public int Id { get; set; }
         [Required, StringLength(70)]
         public string Name { get; set; }
-        public List<GameDeveloper> GameDevelopers { get; set; } //Navigational Property (Many to Many)
+        public List<GameDeveloper> GameDevelopers { get; set; } = new List<GameDeveloper>(); //Navigational Property (Many to Many)
     }
 }

@@ -17,7 +17,10 @@ namespace BLL.DAL
         public decimal Price { get; set; }
         public Publisher Publisher { get; set; }//Navigational Property (Many Side)
         public List<GameGenre> GameGenres { get; set; } = new List<GameGenre>(); //Navigational Property (Many to Many)
-        public List<GameDeveloper> GameDevelopers { get; set; } //Navigational Property (Many to Many)
+        public List<GameDeveloper> GameDevelopers { get; set; } = new List<GameDeveloper>(); //Navigational Property (Many to Many)
+
+        public List<LibraryGame> LibraryGames { get; set; } = new List<LibraryGame>(); // Navigational Property (One Side)
+        public List<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>(); // Navigational Property (One Side)
 
 
     }

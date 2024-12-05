@@ -18,6 +18,11 @@ namespace BLL.DAL
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
 
+        public DbSet<Library> Libraries { get; set; }
+        public DbSet<LibraryGame> LibraryGames { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+
         public Db(DbContextOptions options) : base(options)//CONSTRUCTOR
         { 
         }
